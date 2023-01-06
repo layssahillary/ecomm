@@ -1,7 +1,5 @@
-import { createUserUseCase,accounts } from "../src/use-case/teste.js";
+import { createUserUseCase } from '../src/use-case/createUserAccount.js';
 
-const user1 = createUserUseCase("layssa","layssa@email.com","12233");
-const user2 = createUserUseCase("layssa2","layssa@email.com","12233");
-const user3 = createUserUseCase("layssa3","layssa@email.com","12233");
+const josue = createUserUseCase('rayssa', 'rayssa@gmail.com', 'layssa123');
 
-console.log(accounts);
+const alexandre = createUserUseCase('layssa', 'layssa@gmail.com', 'layssa123');

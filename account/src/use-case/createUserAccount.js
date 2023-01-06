@@ -1,15 +1,22 @@
-export const accounts = []
+export const accounts = []; // criando array vazio para as accounts
 
-export function createUserUseCase(name,email,password){
-    const newUser = {
-        id: accounts.length + 1,
-        name,
-        email,
-        password,
-        createdDate: new Date().toISOString().substring(0,10),
-    };
+export function createUserUseCase(name, email, password) { //função createuser
+  
+  const user = {
+    id: accounts.length + 1, // criando id (contando length)
+    name: nome,
+    email: email,
+    password: senha,
+    createdDate: new Date().toISOString().substring(0,10) // criar a data no formato 2022-10-23
+  };
 
-    accounts.push(newUser)
+  accounts.push(user); // criando novo usuario com push
 
-    return newUser;
+  return user; // retornando o usuario 
+
+}
+
+
+export function getAccounts() { // exportando uma função que retorna a lista accounts
+  return accounts;
 }
