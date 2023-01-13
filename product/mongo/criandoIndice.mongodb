@@ -1,0 +1,7 @@
+use('ecomm-product');
+
+db.products.createIndex({produto:1}, {unique:true});
+
+db.products.createIndex({ precoUnitario: 1 }, { unique: true });
+
+db.products.getIndexes();
