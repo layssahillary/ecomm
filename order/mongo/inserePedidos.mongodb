@@ -1,0 +1,51 @@
+use ('ecomm-order');
+
+db.orders.insertMany([
+{   
+    cliente:{
+        id: ObjectId('63cea6d8db03471760fa2fb9'),
+        nome:'Meldoza Cieth'
+    },
+    dataPedido: ISODate(),
+    enderecoDeEntrega: 
+    [{
+      rua: 'Rua João Sebastião de Amorim 278',
+      numero: 1867,
+      complemento: 'apto 604',
+      cep: '36830970',
+      bairro: 'Centro',
+      cidade: 'Espera Feliz',
+      uf: 'MG',
+    }],
+    itens:[{
+        idProduto:ObjectId('63c19e5c4137547e063259e0'),
+        produto:'Galaxy Tab S8',
+        quantidade:1,
+        desconto:30,
+        precoUnitario:5939.1,
+    }]
+},
+{
+    cliente:{
+        id: ObjectId('63cea6d8db03471760fa2fba'),
+        nome:'Valapen Dolleame'
+    },
+    dataPedido: ISODate(),
+    enderecoDeEntrega: [{
+      rua: 'Avenida José Walter',
+      numero: 746,
+      complemento: 'S/N',
+      cep: '75908740',
+      bairro: 'Setor Morada do Sol',
+      cidade: 'Rio Verde',
+      uf: 'GO',
+}],
+    itens:[{
+        idProduto:ObjectId('63c19e5c4137547e063259db'),
+        produto:'Macbook Pro 16',
+        quantidade: 1,
+        desconto: 60,
+        precoUnitario: 31752,
+    }]
+}
+]);
