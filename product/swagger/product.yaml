@@ -103,6 +103,100 @@ paths:
             application/json:
               example: "Not Found"
               
+  /api/products:
+    get:
+      summary: Recupera todas os PRodutos
+      responses:
+        200:
+          description: Recuperação dos produtos com Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produtos'
+  
+  /api/admin/produtcs:
+    post:
+      summary: Criar novo produto
+      responses:
+        201:
+          description: Produto criada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produtos'
+  
+  /api/products/{id}:
+    parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+      required: true
+    get:
+      summary: Recupera um produto pelo ID
+      responses:
+        200:
+          description: Produto pelo ID recuperado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: ID do Produto não encontrado
+          content:
+            application/json:
+              example: "Not Found"
+              
+  /api/admin/products/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: integer
+        required: true
+    put:
+      summary: Alterar dados do produto
+      responses:
+        200:
+          description: Alteração dos dados feita com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+            description: Produto não encontrada
+            content:
+              application/json:
+                example: "Not Found"
+    delete:
+      summary: Excluir Produto
+      responses: 
+        200:
+          description: Produto excluido com sucesso
+          content:
+            aplication/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: Página não encontrada
+          content:
+            application/json:
+              example: "Not Found"
+    patch:
+      summary: Alterar o status de um produto
+      responses: 
+        200:
+          description: Alteração do status feita com sucesso
+          content:
+            aplication/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: Alteração não encontrada
+          content:
+            application/json:
+              example: "Not Found"
+
 components:
   schemas:
     Categoria:
@@ -118,5 +212,27 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Categoria'
+    Produto:
+      type: object
+      properties:
+        id:
+          type: integer
+        produto:
+          type: string
+        descrição:
+          type: string
+        slug :
+          type: string
+        preçoUnitário:
+          type: number
+        quantidadeEmEstoque:
+          type: integer
+        id de uma categoria:
+          type: integer
+    Produtos:
+      type: array
+      items:
+        $ref: '#/components/schemas/Produto'
+
 
  
