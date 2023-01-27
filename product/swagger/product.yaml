@@ -38,6 +38,29 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Categoria"
+
+  /api/categories/{id}:
+    parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+      required: true
+    get:
+      summary: Recupera uma categoria pelo ID
+      responses:
+        200:
+          description: Categoria pelo ID recuperada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        404:
+          description: ID da Categoria não encontrada
+          content:
+            application/json:
+              example: "Not Found"
+              
 components:
   schemas:
     Categoria:
