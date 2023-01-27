@@ -8,6 +8,7 @@ info:
     email: layssahillary@pagonxt.com
     url: https://github.com/LayssaHillary/ecomm
 paths:
+
   /api/categories:
     get:
       summary: Recupera todas as categorias
@@ -18,6 +19,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Categorias'
+                
+  /api/admin/categories:
+    post:
+      summary: Criar nova categoria
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                descricao:
+                  type: string
+      responses:
+        201:
+          description: Categoria criada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Categoria"
 components:
   schemas:
     Categoria:
