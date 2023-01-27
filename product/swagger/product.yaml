@@ -14,7 +14,7 @@ paths:
       summary: Recupera todas as categorias
       responses:
         200:
-          description: Sucesso
+          description: Recuperação das categorias com Sucesso
           content:
             application/json:
               schema:
@@ -23,21 +23,13 @@ paths:
   /api/admin/categories:
     post:
       summary: Criar nova categoria
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                descricao:
-                  type: string
       responses:
         201:
           description: Categoria criada com sucesso
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Categoria"
+                $ref: '#/components/schemas/Categoria'
 
   /api/categories/{id}:
     parameters:
@@ -57,6 +49,56 @@ paths:
                 $ref: '#/components/schemas/Categoria'
         404:
           description: ID da Categoria não encontrada
+          content:
+            application/json:
+              example: "Not Found"
+  
+  /api/admin/categories/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: integer
+        required: true
+    put:
+      summary: Alterar os dados de uma categoria
+      responses:
+        200:
+          description: Alteração dos dados feita com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        404:
+            description: Categoria não encontrada
+            content:
+              application/json:
+                example: "Not Found"
+    delete:
+      summary: Excluir categoria
+      responses: 
+        200:
+          description: Categoria excluida com sucesso
+          content:
+            aplication/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        404:
+          description: Página não encontrada
+          content:
+            application/json:
+              example: "Not Found"
+    patch:
+      summary: Alterar o status de uma categoria
+      responses: 
+        200:
+          description: Alteração do status feita com sucesso
+          content:
+            aplication/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        404:
+          description: Alteração não encontrada
           content:
             application/json:
               example: "Not Found"
