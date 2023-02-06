@@ -3,6 +3,10 @@ import CategoriesController from "../controllers/categoriesController.js";
 
 const router = express.Router();
 
-router.get("/categorias", CategoriesController.listarCategorias)
+router
+    .get("/categorias/:id", CategoriesController.listarCategoriasPorId)
+    .get("/categorias", CategoriesController.listarCategorias)
+    .post("/categorias", CategoriesController.cadastrarCategorias)
+
 
 export default router;
