@@ -1,0 +1,55 @@
+use ('ecomm-account')
+
+db.users.insertMany([
+  {
+    nome: 'Dolgil Roel',
+    email: 'dolgil@email.com',
+    senha: 'A7FCC8B49999668D95E485F6F017BDE6',
+    criadoEm: ISODate(),
+    cpf: '06710552080',
+    telefone: '31171336757',
+    endereco: [{
+      rua: 'Rua Dona Neném Lindinho',
+      numero: 100,
+      complemento: 'S/N',
+      cep: '35930179',
+      bairro: 'Carneirinhos',
+      cidade: 'João Monlevade',
+      uf: 'MG',
+    }],
+  },
+  {
+    nome: 'Meldoza Cieth',
+    email: 'meldoza@email.com',
+    senha: '3A16AFFE06B7998A45E4A7CC5EDE362B',
+    criadoEm: ISODate(),
+    cpf: '18975793060',
+    telefone: '11248161466',
+    endereco: [{
+      rua: 'Rua João Sebastião de Amorim 278',
+      numero: 1867,
+      complemento: 'apto 604',
+      cep: '36830970',
+      bairro: 'Centro',
+      cidade: 'Espera Feliz',
+      uf: 'MG',
+    }],
+  },
+  {
+    nome: 'Valapen Dolleame',
+    email: 'valapen@email.com',
+    senha: '1C1C70E2E786C66ECA4EC0BDEE6EEE59',
+    criadoEm: ISODate(),
+    cpf: '48856040018',
+    telefone: '81432493831',
+    endereco: [{
+      rua: 'Avenida José Walter',
+      numero: 746,
+      complemento: 'S/N',
+      cep: '75908740',
+      bairro: 'Setor Morada do Sol',
+      cidade: 'Rio Verde',
+      uf: 'GO',
+}],
+  }
+]);

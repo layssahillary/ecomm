@@ -1,35 +1,43 @@
-import categories from "../models/Categories.js";
-import validate from "../validações/categoriesValidations.js";
+import categoryModel from '../models/Categories.js';
+import validate from '../validations/categoriesValidations.js'
 
-class CategoriesController{
-
-    static listarCategorias = (req,res) => {
-        categories.find((err, categories) => {
-            res.status(200).json(categories)
-        })
+const categoriesController = {
+  listAllCategories: async (_req, res) => {
+    try {
+      const categories = await categoryModel.find();
+      if (!categories) {
+        throw new Error('Categorias não encontradas');
+      }
+      return res.status(200).json(categories);
+    } catch (error) {
+      if (error.message === 'Categorias não encontradas') {
+        return res.status(404).json(error.message);
+      }
+      return res.status(500).json(error.message);
     }
-
-    static cadastrarCategorias = (req,res) => {
-        const isValid = validate.validateBody(req.body) 
-        if(isValid.error){
-            res.status(500).send({messege: `${isValid.error.message} - falha ao cadastrar categoria.`})
-        }
-        let categoria = new categories(isValid.value);
-        categorias.save((err) =>{
-            res.status(201).json(categoria)
-        })
+  },
+  listCategoryById: async (req, res) => {
+    try {
+      const category = await categoryModel.findById(req.params.id);
+      if (!category) {
+        throw new Error('Categoria não encontrada');
+      }
+      return res.status(200).json(category);
+    } catch (error) {
+      if (error.message === 'Categoria não encontrada') {
+        return res.status(404).json(error.message);
+      }
+      return res.status(500).json(error.message);
     }
-
-    static listarCategoriasPorId = async (req,res) => {
-        const id = req.params.id;
-          const isValid = validate.validateId(id) 
-
-        if(isValid.error){
-            res.status(500).send({messege: `${isValid.error.message} - Id não encontrado.`})
-        }
-        const category = await categories.findById(isValid.value);
-        res.status(200).json(category)
+  },
+  createCategory: async (req, res) => {
+    try {
+      const isValid = validate.validateBody(req.body);
+      const newCategory = await categoryModel.create(isValid.value);
+      return res.status(201).json(newCategory);
+    } catch (error) {
+      return res.status(500).json(error.message);
     }
+  }
 }
-
-export default CategoriesController
+export default categoriesController

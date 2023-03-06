@@ -4,12 +4,16 @@ services:
     container_name: ecomm-product
     build: ./product
     ports:
-      - "3002:3002"
+      - 3001:3001
+    volumes:
+      - ./product:/app-product
   account:
     container_name: ecomm-account
     build: ./account
     ports:
-      - 3001:3001
+      - 3002:3002
+    volumes:
+      - ./account:/app-account
   mongodb:
     image: mongo:5
     restart: always
@@ -35,4 +39,4 @@ services:
 volumes:
   mongodb-ecomm:
   mysqldb-ecomm:
-
+  
