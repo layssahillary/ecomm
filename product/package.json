@@ -2,12 +2,21 @@
     "name": "product",
     "version": "1.0.0",
     "description": "",
-    "main": "src/main.js",
+    "main": "nodeExpress/server.js",
+    "type": "module",
     "scripts": {
-      "start": "node src/main.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "node server.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon server.js"
     },
     "author": "Wanderson Macêdo",
-    "license": "MIT"
-  }
-
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.18.2",
+        "joi": "^17.7.0",
+        "mongoose": "^6.9.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.20"
+    }
+}
