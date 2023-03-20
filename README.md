@@ -60,7 +60,7 @@ NÃO possui |
 Não implementado | API Gateway 
 Não implementado | Agregador de processos
 Não implementado | Edge service
- OK | Single database vs Bancos diferentes | Usamos o mongoDB
+ OK | Single database vs Bancos diferentes | Usamos o mongoDB e MySQL
  OK | Eventos assíncronos 
 Não implementado | Agregação de logs 
 Não implementado | Agregação de métricas 
