@@ -53,5 +53,15 @@ Rode tarefas de administração/gestão em processos pontuais
 NÃO possui |
 
 
+# Microservices Patterns
 
+ OK | Serviços de domínio | A aplicação possui Account, finance e product como serviços de dominio
+ OK | Serviços de negócio | Os dominios se comunicam entre si
+Não implementado | API Gateway 
+Não implementado | Agregador de processos
+Não implementado | Edge service
+ OK | Single database vs Bancos diferentes | Usamos o mongoDB
+ OK | Eventos assíncronos 
+Não implementado | Agregação de logs 
+Não implementado | Agregação de métricas 
 
