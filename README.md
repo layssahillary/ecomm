@@ -65,3 +65,22 @@ Não implementado | Edge service
 Não implementado | Agregação de logs 
 Não implementado | Agregação de métricas 
 
+# Aspectos de Microservices 
+ 
+# Padronização das Stacks
+O projeto foi padroonizado e desenvolvido utilizando Javascript, MongoDB e MySQL
+
+# Solução para Service Discovery
+Em todos os serviços foi utilizado o Docker, onde permite e consegue fazer a comunicação
+
+# Aspectos de Segurança
+O aspecto de segurança foi implementado nos serviços utilizando Token e JWT com a crioptografia dos dados sensiveis.
+
+# Tecnologias para Deploy e Build
+ Para o build utilizamos Jest e o ESLint e testes. Para o deploy podemos utilizar ferramentas como GitHub Actions.
+
+# Tolerância a Falhas em Aplicações Síncronas
+Para tolerancia a falhas em aplicações sincronas são importantes o circuit breaker e o cache cache.
+
+# Comunicação Assíncrona
+A comunicação assíncrona é ideal, onde as respostas são já obtida. Pode ser implementado um serviço de mensageria para realizar a comunicação,como o RabbitMQ.
